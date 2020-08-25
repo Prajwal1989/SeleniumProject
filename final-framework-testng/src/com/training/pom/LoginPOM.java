@@ -13,14 +13,26 @@ public class LoginPOM {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(id="login")
+	@FindBy(id="input-username")
 	private WebElement userName; 
 	
-	@FindBy(id="password")
+	@FindBy(id="input-password")
 	private WebElement password;
 	
-	@FindBy(id="formLogin_submitAuth")
+	@FindBy(id="input-name")
+	private WebElement productname;
+	
+	@FindBy(xpath="//button[@type='submit']")
 	private WebElement loginBtn; 
+	
+	@FindBy(xpath="//i[@class='fa fa-tags fa-fw']")
+	private WebElement catalogLink; 
+	
+	@FindBy(linkText="Products")
+	private WebElement productLink;
+	
+	@FindBy(id="button-filter")
+	private WebElement filterbtn; 
 	
 	public void sendUserName(String userName) {
 		this.userName.clear();
@@ -35,4 +47,18 @@ public class LoginPOM {
 	public void clickLoginBtn() {
 		this.loginBtn.click(); 
 	}
+	public void clickcatalogBtn() {
+		this.catalogLink.click(); 
+	}
+	public void clickproductBtn() {
+		this.productLink.click(); 
+	}
+	public void sendProductName(String productname) {
+		this.productname.clear(); 
+		this.productname.sendKeys(productname); 
+	}
+	public void clickFilterBtn() {
+		this.filterbtn.click();
+	}
+	
 }
